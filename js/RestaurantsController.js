@@ -1,8 +1,13 @@
 bestRestaurant.controller('RestaurantsCtrl', function StudentsCtrl($scope) {
   $scope.restaurants = [];
   $scope.addRestaurant = function() {
-    $scope.restaurants.push({ name: $scope.restaurantName });
-    $scope.restaurantName = null;
+    var newRestaurant = {
+                          name: $scope.restaurant.restaurantName,
+                          description: $scope.restaurant.restaurantDescription
+                        }
+    $scope.restaurants.push( newRestaurant );
+    $scope.restaurant.restaurantName = null;
+    $scope.restaurant.restaurantDescription = null;
   };
   $scope.deleteRestaurant = function(restaurant) {
     var index = $scope.restaurants.indexOf(restaurant)
