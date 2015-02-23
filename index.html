@@ -27,13 +27,14 @@
         <ul>
           <li ng-repeat="item in filtered = (restaurants | filter:query)">
             <span ng-click="editing = true" ng-hide="editing">
-              {{item.name}} {{item.description}} {{item.location}} <a ng-click="deleteRestaurant(item)">Delete</a>
+              {{item.name}} {{item.description}} {{item.location}} {{item.price}} <a ng-click="deleteRestaurant(item)">Delete</a>
             </span>
             <span class="form-group" ng-show="editing" ng-submit="editing = false">
               <form class="form-inline" role="form">
                 <input type="text" class="form-control input-sm" ng-model="item.name" placeholder="Name" required/>
                 <input type="text" class="form-control input-sm" ng-model="item.description" placeholder="Name" required/>
                 <input type="text" class="form-control input-sm" ng-model="item.location" placeholder="Location" required/>
+                <input type="text" class="form-control input-sm" ng-model="item.price" placeholder="Price Range" required/>
                 <button class="btn btn-default btn-sm" type="submit">Save</button>
               </form>
             </span>
@@ -55,6 +56,11 @@
         </br>
           <div class="form-group">
             <input type="text" ng-model="restaurant.restaurantLocation" class="form-control" placeholder="Enter Location">
+          </div>
+        </br>
+        </br>
+          <div class="form-group">
+            <input type="text" ng-model="restaurant.restaurantPrice" class="form-control" placeholder="Price range per person">
           </div>
         </br>
         </br>
